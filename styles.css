@@ -1,0 +1,29 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr;
+    grid-template-rows: 800px;
+}
+
+ul {
+    padding-inline-start: 0px;
+}
+
+.Player-1 {
+    background-color: #e3fafc;
+    display: flex;
+    justify-content: center;
+}
+
+.Game {
+    background-color: #f1f3f5;
+    display: flex;
+    justify-content: center; 
+}
+
+.Player-2 {
+    background-color: #e3fafc;
+    display: flex;
+    justify-content: center; 
+}
