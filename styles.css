@@ -45,7 +45,7 @@ h1 {
 }
 
 .Game {
-    background-color: whitesmoke;
+    background-color: white;
     justify-content: center; 
     display: grid;
     grid-template-rows: .5fr 1fr;
@@ -63,12 +63,19 @@ h1 {
 .square {
     width: 100px;
     height: 100px;
-    background-color: #8eaccd;
+    /* background-color: #8eaccd; */
     border: .5px solid white;
     cursor: pointer;
     display: grid;
     justify-content: center;
     align-content: center;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 250%;
+    border: black solid;
+}
+
+.square:hover {
+    background-color: #8eaccd;
 }
 
 .turn-reminder {
