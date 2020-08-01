@@ -1,3 +1,16 @@
+/*
+
+O
+X
+<section class="Game">
+    <h1 class="Turn-reminder">'s Turn</h1>
+    <section class="Game-board" id="board">
+        <div class="square" id="square-1"></div>
+
+123456789
+
+*/
+
 body {
     margin: 0;
     padding: 0;
@@ -63,15 +76,49 @@ h1 {
 .square {
     width: 100px;
     height: 100px;
-    /* background-color: #8eaccd; */
-    border: .5px solid white;
     cursor: pointer;
     display: grid;
     justify-content: center;
     align-content: center;
     font-family: 'Permanent Marker', cursive;
     font-size: 250%;
-    border: black solid;
+    border: .9px black solid;
+}
+
+#square-1 {
+    border-top: none;
+    border-left: none;
+}
+
+#square-2 {
+    border-top: none;
+}
+
+#square-3 {
+    border-top: none;
+    border-right: none;
+}
+
+#square-4 {
+    border-left: none;
+}
+
+#square-6 {
+    border-right: none;
+}
+
+#square-7 {
+    border-left: none;
+    border-bottom: none;
+}
+
+#square-8 {
+    border-bottom: none;
+}
+
+#square-9 {
+    border-bottom: none;
+    border-right: none;
 }
 
 .square:hover {
