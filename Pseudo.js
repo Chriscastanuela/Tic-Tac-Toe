@@ -22,6 +22,9 @@ Global:
         Retrieve it
         Clear after 3 of 5
 
+Refactor:
+    showTurn and makeMove
+
 */
 /* <---------------------------Code I might need
 

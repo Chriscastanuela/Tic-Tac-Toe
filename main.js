@@ -15,6 +15,7 @@ var sq6 = document.querySelector("#square-6");
 var sq7 = document.querySelector("#square-7");
 var sq8 = document.querySelector("#square-8");
 var sq9 = document.querySelector("#square-9");
+var mainHeader = document.querySelector(".main-header");
 
 // <---------------------------Event Listeners
 sq1.addEventListener("click", makeMove);
@@ -26,26 +27,22 @@ sq6.addEventListener("click", makeMove);
 sq7.addEventListener("click", makeMove);
 sq8.addEventListener("click", makeMove);
 sq9.addEventListener("click", makeMove);
-window.addEventListener("onload", showTurn);
+window.addEventListener("load", showStart);
 
 // <---------------------------Functions
 
-function showTurn() {
-    if (moves[0] == "O" && this.innerHTML == "" || moves.length < 1 && this.innerHTML == "") {
-
-    }
+function showStart() {
+    /*3*/mainHeader.innerHTML = "Start";
 }
 
 function makeMove() {
     if (moves[0] == "O" && this.innerHTML == "" || moves.length < 1 && this.innerHTML == "") {
         /*1*/moves.unshift("X");
         /*2*/this.insertAdjacentHTML("afterbegin", player1.icon);
+        /*3*/mainHeader.innerHTML = "O's Turn";
     } if (moves[0] == "X" && this.innerHTML == ""){
         /*1*/moves.unshift("O");
         /*2*/this.insertAdjacentHTML("afterbegin", player2.icon);
+        /*3*/mainHeader.innerHTML = "X's Turn";
     }
-};
-
-function turnReminder() {
-    
 };
