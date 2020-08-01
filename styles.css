@@ -11,35 +11,76 @@ ul {
 }
 
 h1 {
-    font-family: 'Permanent Marker', cursive;
-}
-
-.Player-1 {
-    background-color: #e3fafc;
     display: flex;
     justify-content: center;
 }
 
-.Game {
-    background-color: #f1f3f5;
+.Player-1 {
+    background-image: linear-gradient(to top, #617080, #697b8e, #71869c, #7a92aa, #829db9, #87a2be, #8da7c4, #92acc9, #95acc6, #99adc3, #9cadc0, #9fadbd);
     display: flex;
+    justify-content: center;
+    display: grid;
+    grid-template-rows: .5fr 1fr;
+}
+
+.player-titles {
+    display: flex;
+    justify-content: center;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 250%;
+}
+
+.player-victories {
+    display: flex;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.victory-display {
+    display: flex;
+    width: 300px;
+    height: 300px;
+    justify-content: center;
+    align-content: center;
+}
+
+.Game {
+    background-color: whitesmoke;
     justify-content: center; 
     display: grid;
     grid-template-rows: .5fr 1fr;
 }
 
+.Game-board {
+    width: 300px;
+    height: 300px;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: repeat(3, auto);
+}
+
+.square {
+    width: 100px;
+    height: 100px;
+    background-color: #8eaccd;
+    border: .5px solid white;
+    cursor: pointer;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
 .turn-reminder {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 250%;
     display: flex;
     justify-content: center;
 }
 
-.Game-grid {
-    display: flex;
-        width: 300px;
-    height: 300px;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
+.marker {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 250%;
 }
 
 .top {
@@ -48,7 +89,9 @@ h1 {
 }
 
 .Player-2 {
-    background-color: #e3fafc;
+    background-image: linear-gradient(to top, #617080, #697b8e, #71869c, #7a92aa, #829db9, #87a2be, #8da7c4, #92acc9, #95acc6, #99adc3, #9cadc0, #9fadbd);
     display: flex;
     justify-content: center; 
+    display: grid;
+    grid-template-rows: .5fr 1fr;
 }
