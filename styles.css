@@ -1,16 +1,3 @@
-/*
-
-O
-X
-<section class="Game">
-    <h1 class="Turn-reminder">'s Turn</h1>
-    <section class="Game-board" id="board">
-        <div class="square" id="square-1"></div>
-
-123456789
-
-*/
-
 body {
     margin: 0;
     padding: 0;
@@ -62,7 +49,7 @@ h1 {
 }
 
 .Game {
-    background-color: white;
+    background-color: whitesmoke;
     justify-content: center; 
     display: grid;
     grid-template-rows: .5fr 1fr;
@@ -129,7 +116,7 @@ h1 {
     background-color: #8eaccd;
 }
 
-.turn-reminder {
+.main-header {
     font-family: 'Permanent Marker', cursive;
     font-size: 250%;
     display: flex;
