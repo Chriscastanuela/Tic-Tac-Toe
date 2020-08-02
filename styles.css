@@ -120,6 +120,14 @@ h1 {
     background-color: #8eaccd;
 }
 
+.restartButton:hover {
+    background-color: #8eaccd;
+}
+
+.newGameButton:hover {
+    background-color: #8eaccd;
+}
+
 .main-header {
     font-family: 'Permanent Marker', cursive;
     font-size: 250%;

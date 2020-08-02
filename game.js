@@ -3,7 +3,7 @@ class Game {
         this.player1 = new Player ("One", "🐵");
         this.player2 = new Player ("Two", "🙈");
         this.turns = [];
-        this.sessions = [];
+        this.rounds = [];
     }
     player1Turn() {
         this.turns.unshift("X");

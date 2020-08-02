@@ -1,5 +1,5 @@
 // <---------------------------Global
-var games = [];
+/* Data Model */var games = [];
 var someoneWon = false;
 var currentGame = new Game();
 player1 = currentGame.player1;
@@ -19,7 +19,8 @@ var mainHeader = document.querySelector(".main-header");
 var victory1 = document.querySelector("#victory-display-1");
 var victory2 = document.querySelector("#victory-display-2");
 var allSquares = document.querySelector(".square");
-var restartButton = document.querySelector("button");
+var restartButton = document.querySelector(".restartButton");
+var newGameButton = document.querySelector(".newGameButton");
 
 // <---------------------------Event Listeners
 window.addEventListener("load", showStart);
@@ -37,8 +38,6 @@ restartButton.addEventListener("click", showStart);
 // <---------------------------Functions
 
 function showStart() {
-    // mainHeader.innerHTML = "Start";
-    // restartButton.hidden = true;
     sq1.innerHTML = "";
     sq2.innerHTML = "";
     sq3.innerHTML = "";
@@ -50,6 +49,7 @@ function showStart() {
     sq9.innerHTML = "";
     currentGame.turns = [];
     restartButton.hidden = true;
+    newGameButton.hidden = true;
     mainHeader.innerHTML = "Start";
     someoneWon = false;
 }
@@ -60,7 +60,6 @@ function makeMove() {
         /*2*/this.insertAdjacentHTML("afterbegin", player1.icon);
         /*3*/mainHeader.innerHTML = "🙈's Turn";
         /*4*/checkForWin("🐵", victory1, player1);
-
     } if (currentGame.turns[0] === "X" && this.innerHTML === "" && someoneWon === false ){
         /*1*/currentGame.player2Turn();
         /*2*/this.insertAdjacentHTML("afterbegin", player2.icon);
@@ -73,25 +72,12 @@ function checkForWin(token, scoreBox, player) {
     if (sq1.innerHTML == token && sq2.innerHTML == token && sq3.innerHTML == token || sq4.innerHTML == token && sq5.innerHTML == token && sq6.innerHTML == token || sq7.innerHTML == token && sq8.innerHTML == token && sq9.innerHTML == token || sq1.innerHTML == token && sq4.innerHTML == token && sq7.innerHTML == token || sq2.innerHTML == token && sq5.innerHTML == token && sq8.innerHTML == token || sq3.innerHTML == token && sq6.innerHTML == token && sq9.innerHTML == token  || sq1.innerHTML == token && sq5.innerHTML == token && sq9.innerHTML == token || sq3.innerHTML == token && sq5.innerHTML == token && sq7.innerHTML == token) {
         /*1*/someoneWon = true;
         /*2*/player.wins.push("🍌");
-        // scoreBox.innerHTML = "";
         /*3*/scoreBox.innerHTML = player.wins;
-        restartButton.hidden = false;
-        mainHeader.innerHTML = token + " Wins!"
+        /*4*/restartButton.hidden = false;
+        /*5*/mainHeader.innerHTML = token + " Wins!";
+        /*6*/currentGame.rounds.push("one")
+        /*7*/newGameButton.hidden = false;
         console.log(player);
+        console.log(currentGame);
     }
 };
-
-// function restart() {
-//     sq1.innerHTML = "";
-//     sq2.innerHTML = "";
-//     sq3.innerHTML = "";
-//     sq4.innerHTML = "";
-//     sq5.innerHTML = "";
-//     sq6.innerHTML = "";
-//     sq7.innerHTML = "";
-//     sq8.innerHTML = "";
-//     sq9.innerHTML = "";
-//     currentGame.turns = [];
-//     restartButton.hidden = true;
-//     mainHeader.innerHTML = "Start";
-// }

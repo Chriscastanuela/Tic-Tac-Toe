@@ -27,33 +27,31 @@ class Player {
     }
 }
 
-/*  <---------------------------Pseudo
-
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-- log wins to player
-- log games to data model
-- best 3 of 5
+/*  <---------------------------List
 
 Game:
-    - check squares for win or draw
-    - wins
-        Update main header after best 3 of 5
-        Over after Best 3 of 5, clear storage
-        reset board after win or draw
+- keep track of the data for the game board
+- keep track of turns
 
 Player:
-    - saveWinsToStorage
-    - retrieveWinsFromStorage
+- saveWinsToStorage
+- retrieveWinsFromStorage
 
 Global:
-    Datamodel - 
-        Log array of wins
-        Store it
-        Retrieve it
-        Clear and reset after 3 of 5
+Datamodel - 
+    Log array of wins
+    Store it
+    Retrieve it
+
+        - Check for draws
+*/
+//// <---------------------------Extra
+// Clear and reset after 3 of 5
+
+/*  <---------------------------Pseudo
 
 */
-/* <---------------------------Code I might need
+/* <-----------------------------Code I might need
 
 
 <section class="Game">
@@ -118,5 +116,20 @@ function checkForWin(token, scoreBox, player) {
         console.log(player.wins);
     }
 };
+
+// function restart() {
+//     sq1.innerHTML = "";
+//     sq2.innerHTML = "";
+//     sq3.innerHTML = "";
+//     sq4.innerHTML = "";
+//     sq5.innerHTML = "";
+//     sq6.innerHTML = "";
+//     sq7.innerHTML = "";
+//     sq8.innerHTML = "";
+//     sq9.innerHTML = "";
+//     currentGame.turns = [];
+//     restartButton.hidden = true;
+//     mainHeader.innerHTML = "Start";
+// }
 
 */
