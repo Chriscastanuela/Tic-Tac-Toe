@@ -52,15 +52,16 @@ Global:
         Retrieve it
         Clear and reset after 3 of 5
 
-🍌🍌🍌
 */
 /* <---------------------------Code I might need
+
 
 <section class="Game">
     <h1 class="Turn-reminder">'s Turn</h1>
     <section class="Game-board" id="board">
         <div class="square" id="square-1"></div>
 
+// makeMove
 function makeMove() {
     if (moves[0] == "O" && this.innerHTML == "" || moves.length < 1 && this.innerHTML == "") {
         moves.unshift("X");
@@ -70,6 +71,51 @@ function makeMove() {
         moves.unshift("O");
         /this.insertAdjacentHTML("afterbegin", player2.icon);
         mainHeader.innerHTML = "🐵's Turn";
+    }
+};
+
+// checkForWin
+function checkForWin(token, scoreBox, player) {
+    if (sq1.innerHTML == token && sq2.innerHTML == token && sq3.innerHTML == token) {
+        player.wins.push("🍌");
+        scoreBox.innerHTML = "";
+        scoreBox.innerHTML = player.wins;
+        console.log(player.wins);
+    } if (sq4.innerHTML == token && sq5.innerHTML == token && sq6.innerHTML == token) {
+        player.wins.push("🍌");
+        scoreBox.innerHTML = "";
+        scoreBox.innerHTML = player.wins;
+        console.log(player.wins);
+    } if (sq7.innerHTML == token && sq8.innerHTML == token && sq9.innerHTML == token) {
+        player.wins.push("🍌");
+        scoreBox.innerHTML = "";
+        scoreBox.innerHTML = player.wins;
+        console.log(player.wins);
+    } if (sq1.innerHTML == token && sq4.innerHTML == token && sq7.innerHTML == token) {
+        player.wins.push("🍌");
+        scoreBox.innerHTML = "";
+        scoreBox.innerHTML = player.wins;
+        console.log(player.wins);
+    } if (sq2.innerHTML == token && sq5.innerHTML == token && sq8.innerHTML == token) {
+        player.wins.push("🍌");
+        scoreBox.innerHTML = "";
+        scoreBox.innerHTML = player.wins;
+        console.log(player.wins);
+    } if (sq3.innerHTML == token && sq6.innerHTML == token && sq9.innerHTML == token) {
+        player.wins.push("🍌");
+        scoreBox.innerHTML = "";
+        scoreBox.innerHTML = player.wins;
+        console.log(player.wins);
+    } if (sq1.innerHTML == token && sq5.innerHTML == token && sq9.innerHTML == token) {
+        player.wins.push("🍌");
+        scoreBox.innerHTML = "";
+        scoreBox.innerHTML = player.wins;
+        console.log(player.wins);
+    } if (sq3.innerHTML == token && sq5.innerHTML == token && sq7.innerHTML == token) {
+        player.wins.push("🍌");
+        scoreBox.innerHTML = "";
+        scoreBox.innerHTML = player.wins;
+        console.log(player.wins);
     }
 };
 
