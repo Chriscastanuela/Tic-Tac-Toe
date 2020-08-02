@@ -1,14 +1,14 @@
 class Game {
     constructor() {
-        this.player1 = new Player ("One", "X");
-        this.player2 = new Player ("Two", "O");
-        this.turn = [];
-        this.winner = [];
+        this.player1 = new Player ("One", "🐵");
+        this.player2 = new Player ("Two", "🙈");
+        this.turns = [];
+        this.sessions = [];
     }
     player1Turn() {
-        this.turn.push("X");
+        this.turns.unshift("X");
     }
     player2Turn() {
-        this.turn.push("O");
+        this.turns.unshift("O");
     }
 }

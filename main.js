@@ -1,9 +1,9 @@
 // <---------------------------Global
-var dataModel = [];
+var moves = [];
+var games = [];
 var currentGame = new Game();
 player1 = currentGame.player1;
 player2 = currentGame.player2;
-var moves = [];
 
 // <---------------------------QuerySelectors
 var sq1 = document.querySelector("#square-1");
@@ -32,17 +32,17 @@ window.addEventListener("load", showStart);
 // <---------------------------Functions
 
 function showStart() {
-    /*3*/mainHeader.innerHTML = "Start";
+    mainHeader.innerHTML = "Start";
 }
 
 function makeMove() {
-    if (moves[0] == "O" && this.innerHTML == "" || moves.length < 1 && this.innerHTML == "") {
-        /*1*/moves.unshift("X");
+    if (currentGame.turns[0] == "O" && this.innerHTML == "" || currentGame.turns.length < 1 && this.innerHTML == "") {
+        /*1*/currentGame.player1Turn();
         /*2*/this.insertAdjacentHTML("afterbegin", player1.icon);
-        /*3*/mainHeader.innerHTML = "O's Turn";
-    } if (moves[0] == "X" && this.innerHTML == ""){
-        /*1*/moves.unshift("O");
+        /*3*/mainHeader.innerHTML = "🙈's Turn";
+    } if (currentGame.turns[0] == "X" && this.innerHTML == ""){
+        /*1*/currentGame.player2Turn();
         /*2*/this.insertAdjacentHTML("afterbegin", player2.icon);
-        /*3*/mainHeader.innerHTML = "X's Turn";
+        /*3*/mainHeader.innerHTML = "🐵's Turn";
     }
 };

@@ -4,6 +4,8 @@ body {
     display: grid;
     grid-template-columns: 1fr 1.5fr 1fr;
     grid-template-rows: 100%;
+    min-width: 1024px;
+    min-height: 768px;
 }
 
 ul {
@@ -21,6 +23,8 @@ h1 {
     justify-content: center;
     display: grid;
     grid-template-rows: .5fr 1fr;
+    /* min-width: 310px;
+    min-height: 500px; */
 }
 
 .player-titles {
@@ -45,7 +49,7 @@ h1 {
     align-items: center;
     justify-content: center;
     font-family: 'Permanent Marker', cursive;
-    font-size: 150%;
+    font-size: 350%;
 }
 
 .Game {
@@ -53,6 +57,8 @@ h1 {
     justify-content: center; 
     display: grid;
     grid-template-rows: .5fr 1fr;
+    /* min-width: 310px;
+    min-height: 500px; */
 }
 
 .Game-board {
@@ -139,4 +145,6 @@ h1 {
     justify-content: center; 
     display: grid;
     grid-template-rows: .5fr 1fr;
+    /* min-width: 310px;
+    min-height: 500px; */
 }
