@@ -32,13 +32,26 @@ sq6.addEventListener("click", makeMove);
 sq7.addEventListener("click", makeMove);
 sq8.addEventListener("click", makeMove);
 sq9.addEventListener("click", makeMove);
-restartButton.addEventListener("click", restart);
+restartButton.addEventListener("click", showStart);
 
 // <---------------------------Functions
 
 function showStart() {
-    mainHeader.innerHTML = "Start";
+    // mainHeader.innerHTML = "Start";
+    // restartButton.hidden = true;
+    sq1.innerHTML = "";
+    sq2.innerHTML = "";
+    sq3.innerHTML = "";
+    sq4.innerHTML = "";
+    sq5.innerHTML = "";
+    sq6.innerHTML = "";
+    sq7.innerHTML = "";
+    sq8.innerHTML = "";
+    sq9.innerHTML = "";
+    currentGame.turns = [];
     restartButton.hidden = true;
+    mainHeader.innerHTML = "Start";
+    someoneWon = false;
 }
 
 function makeMove() {
@@ -63,21 +76,22 @@ function checkForWin(token, scoreBox, player) {
         // scoreBox.innerHTML = "";
         /*3*/scoreBox.innerHTML = player.wins;
         restartButton.hidden = false;
+        mainHeader.innerHTML = token + " Wins!"
         console.log(player);
     }
 };
 
-function restart() {
-    sq1.innerHTML = "";
-    sq2.innerHTML = "";
-    sq3.innerHTML = "";
-    sq4.innerHTML = "";
-    sq5.innerHTML = "";
-    sq6.innerHTML = "";
-    sq7.innerHTML = "";
-    sq8.innerHTML = "";
-    sq9.innerHTML = "";
-    currentGame.turns = [];
-    restartButton.hidden = true;
-    mainHeader.innerHTML = "Start";
-}
+// function restart() {
+//     sq1.innerHTML = "";
+//     sq2.innerHTML = "";
+//     sq3.innerHTML = "";
+//     sq4.innerHTML = "";
+//     sq5.innerHTML = "";
+//     sq6.innerHTML = "";
+//     sq7.innerHTML = "";
+//     sq8.innerHTML = "";
+//     sq9.innerHTML = "";
+//     currentGame.turns = [];
+//     restartButton.hidden = true;
+//     mainHeader.innerHTML = "Start";
+// }
