@@ -29,6 +29,11 @@ class Player {
 
 /*  <---------------------------Pseudo
 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+- log wins to player
+- log games to data model
+- best 3 of 5
+
 Game:
     - check squares for win or draw
     - wins
@@ -37,7 +42,8 @@ Game:
         reset board after win or draw
 
 Player:
-    - makeMove
+    - saveWinsToStorage
+    - retrieveWinsFromStorage
 
 Global:
     Datamodel - 
