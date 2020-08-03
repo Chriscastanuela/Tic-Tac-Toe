@@ -5,6 +5,7 @@ class Game {
         this.player2 = new Player ("Two", "🙈");
         this.turns = [];
         this.rounds = [];
+        this.currentGameBoard;
     }
     player1Turn() {
         this.turn.unshift("X");
@@ -12,6 +13,9 @@ class Game {
     }
     player2Turn() {
         this.turn.unshift("O");
+    }
+    getCurrentBoard() {
+        currentGameBoard = document.querySelector(".Game-board");
     }
 }
 
@@ -31,7 +35,7 @@ class Player {
 /*  <---------------------------List
 
 Game:
-- keep track of turns
+- keep track of turns in storage
 
 Player:
 - saveWinsToStorage

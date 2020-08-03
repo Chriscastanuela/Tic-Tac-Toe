@@ -1,7 +1,8 @@
-// <---------------------------Global
+// <---------------------------Main.JS Variables
 var games = []; //Data Model
 var someoneWon = false;
 var currentGame = new Game();
+var moves;
 player1 = currentGame.player1;
 player2 = currentGame.player2;
 
@@ -21,6 +22,7 @@ var victory2 = document.querySelector("#victory-display-2");
 var allSquares = document.querySelector(".square");
 var restartButton = document.querySelector(".restartButton");
 var newGameButton = document.querySelector(".newGameButton");
+var gameBoard = document.querySelector(".Game-board");
 
 // <---------------------------Event Listeners
 window.addEventListener("load", showStart);
@@ -69,15 +71,19 @@ function newGame() {
 
 function makeMove() {
     if (currentGame.turns[0] === "O" && this.innerHTML === "" && someoneWon === false || currentGame.turns.length < 1 && this.innerHTML === "" && someoneWon === false) {
-        /*1*/currentGame.player1Turn();
-        /*2*/this.insertAdjacentHTML("afterbegin", player1.icon);
-        /*3*/mainHeader.innerHTML = "🙈's Turn";
-        /*4*/checkForWin("🐵", victory1, player1);
+        /*!*/currentGame.player1Turn();
+        /*!*/this.insertAdjacentHTML("afterbegin", player1.icon);
+        /*!*/currentGame.currentGameBoard = gameBoard;
+        /*!*/console.log(currentGame.currentGameBoard);
+        /*!*/mainHeader.innerHTML = "🙈's Turn";
+        /*!*/checkForWin("🐵", victory1, player1);
     } if (currentGame.turns[0] === "X" && this.innerHTML === "" && someoneWon === false ){
-        /*1*/currentGame.player2Turn();
-        /*2*/this.insertAdjacentHTML("afterbegin", player2.icon);
-        /*3*/mainHeader.innerHTML = "🐵's Turn";
-        /*4*/checkForWin("🙈", victory2, player2);
+        /*!*/currentGame.player2Turn();
+        /*!*/this.insertAdjacentHTML("afterbegin", player2.icon);
+        /*!*/currentGame.currentGameBoard = gameBoard;
+        /*!*/console.log(currentGame.currentGameBoard);
+        /*!*/mainHeader.innerHTML = "🐵's Turn";
+        /*!*/checkForWin("🙈", victory2, player2);
     }
 };
 
