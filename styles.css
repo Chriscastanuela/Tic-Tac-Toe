@@ -4,6 +4,8 @@ body {
     display: grid;
     grid-template-columns: 1fr 1.5fr 1fr;
     grid-template-rows: 100%;
+    min-width: 1024px;
+    min-height: 768px;
 }
 
 ul {
@@ -11,35 +13,133 @@ ul {
 }
 
 h1 {
-    font-family: 'Permanent Marker', cursive;
-}
-
-.Player-1 {
-    background-color: #e3fafc;
     display: flex;
     justify-content: center;
 }
 
-.Game {
-    background-color: #f1f3f5;
+.Player-1 {
+    background-image: linear-gradient(to top, #617080, #697b8e, #71869c, #7a92aa, #829db9, #87a2be, #8da7c4, #92acc9, #95acc6, #99adc3, #9cadc0, #9fadbd);
     display: flex;
+    justify-content: center;
+    display: grid;
+    grid-template-rows: .5fr 1fr;
+    /* min-width: 310px;
+    min-height: 500px; */
+}
+
+.player-titles {
+    display: flex;
+    justify-content: center;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 250%;
+}
+
+.player-victories {
+    display: flex;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.victory-display {
+    display: flex;
+    width: 300px;
+    height: 300px;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 350%;
+}
+
+.Game {
+    background-color: whitesmoke;
     justify-content: center; 
     display: grid;
     grid-template-rows: .5fr 1fr;
 }
 
-.turn-reminder {
+.Game-board {
+    width: 300px;
+    height: 300px;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: repeat(3, auto);
+}
+
+.square {
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 400%;
+    border: .9px black solid;
+}
+
+#square-1 {
+    border-top: none;
+    border-left: none;
+}
+
+#square-2 {
+    border-top: none;
+}
+
+#square-3 {
+    border-top: none;
+    border-right: none;
+}
+
+#square-4 {
+    border-left: none;
+}
+
+#square-6 {
+    border-right: none;
+}
+
+#square-7 {
+    border-left: none;
+    border-bottom: none;
+}
+
+#square-8 {
+    border-bottom: none;
+}
+
+#square-9 {
+    border-bottom: none;
+    border-right: none;
+}
+
+.square:hover {
+    background-color: #8eaccd;
+}
+
+.restartButton:hover {
+    background-color: #8eaccd;
+    cursor: pointer;
+}
+
+.newGameButton:hover {
+    background-color: #8eaccd;
+    cursor: pointer;
+}
+
+.main-header {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 250%;
     display: flex;
     justify-content: center;
 }
 
-.Game-grid {
-    display: flex;
-        width: 300px;
-    height: 300px;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
+.marker {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 250%;
 }
 
 .top {
@@ -48,7 +148,11 @@ h1 {
 }
 
 .Player-2 {
-    background-color: #e3fafc;
+    background-image: linear-gradient(to top, #617080, #697b8e, #71869c, #7a92aa, #829db9, #87a2be, #8da7c4, #92acc9, #95acc6, #99adc3, #9cadc0, #9fadbd);
     display: flex;
     justify-content: center; 
+    display: grid;
+    grid-template-rows: .5fr 1fr;
+    /* min-width: 310px;
+    min-height: 500px; */
 }
