@@ -122,10 +122,12 @@ h1 {
 
 .restartButton:hover {
     background-color: #8eaccd;
+    cursor: pointer;
 }
 
 .newGameButton:hover {
     background-color: #8eaccd;
+    cursor: pointer;
 }
 
 .main-header {

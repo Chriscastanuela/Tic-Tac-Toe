@@ -1,5 +1,5 @@
 // <---------------------------Global
-/* Data Model */var games = [];
+var games = []; //Data Model
 var someoneWon = false;
 var currentGame = new Game();
 player1 = currentGame.player1;
@@ -34,6 +34,7 @@ sq7.addEventListener("click", makeMove);
 sq8.addEventListener("click", makeMove);
 sq9.addEventListener("click", makeMove);
 restartButton.addEventListener("click", showStart);
+newGameButton.addEventListener("click", newGame);
 
 // <---------------------------Functions
 
@@ -52,6 +53,18 @@ function showStart() {
     newGameButton.hidden = true;
     mainHeader.innerHTML = "Start";
     someoneWon = false;
+}
+
+function newGame() {
+    games.push(currentGame);
+    victory1.innerHTML = "";
+    victory2.innerHTML = "";
+    showStart();
+    currentGame = new Game;
+    player1 = currentGame.player1;
+    player2 = currentGame.player2;
+    console.log(currentGame);
+    console.log(games);
 }
 
 function makeMove() {
@@ -75,7 +88,7 @@ function checkForWin(token, scoreBox, player) {
         /*3*/scoreBox.innerHTML = player.wins;
         /*4*/restartButton.hidden = false;
         /*5*/mainHeader.innerHTML = token + " Wins!";
-        /*6*/currentGame.rounds.push("one")
+        /*6*/currentGame.rounds.push("1")
         /*7*/newGameButton.hidden = false;
         console.log(player);
         console.log(currentGame);

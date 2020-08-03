@@ -1,12 +1,14 @@
+// class game and player
 class Game {
     constructor() {
         this.player1 = new Player ("One", "🐵");
         this.player2 = new Player ("Two", "🙈");
-        this.turn = [];
-        this.games = [];
+        this.turns = [];
+        this.rounds = [];
     }
     player1Turn() {
         this.turn.unshift("X");
+        // this.turn.unshift(event.target.id);
     }
     player2Turn() {
         this.turn.unshift("O");
@@ -26,33 +28,26 @@ class Player {
 
     }
 }
-
 /*  <---------------------------List
 
 Game:
-- keep track of the data for the game board
 - keep track of turns
 
 Player:
 - saveWinsToStorage
 - retrieveWinsFromStorage
 
-Global:
-Datamodel - 
-    Log array of wins
-    Store it
-    Retrieve it
-
-        - Check for draws
+- Check for draws
 */
-//// <---------------------------Extra
-// Clear and reset after 3 of 5
 
+/* <---------------------------Extra
+*/
 /*  <---------------------------Pseudo
 
+Deal with localStorage
+New Game
 */
 /* <-----------------------------Code I might need
-
 
 <section class="Game">
     <h1 class="Turn-reminder">'s Turn</h1>
@@ -117,19 +112,19 @@ function checkForWin(token, scoreBox, player) {
     }
 };
 
-// function restart() {
-//     sq1.innerHTML = "";
-//     sq2.innerHTML = "";
-//     sq3.innerHTML = "";
-//     sq4.innerHTML = "";
-//     sq5.innerHTML = "";
-//     sq6.innerHTML = "";
-//     sq7.innerHTML = "";
-//     sq8.innerHTML = "";
-//     sq9.innerHTML = "";
-//     currentGame.turns = [];
-//     restartButton.hidden = true;
-//     mainHeader.innerHTML = "Start";
-// }
+function restart() {
+    sq1.innerHTML = "";
+    sq2.innerHTML = "";
+    sq3.innerHTML = "";
+    sq4.innerHTML = "";
+    sq5.innerHTML = "";
+    sq6.innerHTML = "";
+    sq7.innerHTML = "";
+    sq8.innerHTML = "";
+    sq9.innerHTML = "";
+    currentGame.turns = [];
+    restartButton.hidden = true;
+    mainHeader.innerHTML = "Start";
+}
 
 */
