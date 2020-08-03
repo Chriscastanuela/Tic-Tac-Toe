@@ -57,12 +57,37 @@ function showStart() {
     someoneWon = false;
 }
 
+if (currentGame.turns.length < 1) {
+    sq1.innerHTML = "";
+    sq2.innerHTML = "";
+    sq3.innerHTML = "";
+    sq4.innerHTML = "";
+    sq5.innerHTML = "";
+    sq6.innerHTML = "";
+    sq7.innerHTML = "";
+    sq8.innerHTML = "";
+    sq9.innerHTML = "";
+    currentGame.turns = [];
+    restartButton.hidden = true;
+    newGameButton.hidden = true;
+    mainHeader.innerHTML = "Start";
+    someoneWon = false;
+} if (currentGame.turns.length > 1) {
+    
+}
+
 function newGame() {
-    games.push(currentGame);
-    victory1.innerHTML = "";
-    victory2.innerHTML = "";
-    showStart();
+    games.push(currentGame); // save currentGame;
+    victory1.innerHTML = ""; // clear victory1
+    victory2.innerHTML = ""; // clear victory2
+    showStart(); 
+    // clear 1 - 9
+    // clear turns
+    // hide restart and new Game buttons
+    // change header to "Start"
+    // someoneWon = false;
     currentGame = new Game;
+    // After everything is cleared start new Game
     player1 = currentGame.player1;
     player2 = currentGame.player2;
     console.log(currentGame);
@@ -94,8 +119,17 @@ function checkForWin(token, scoreBox, player) {
         /*3*/scoreBox.innerHTML = player.wins;
         /*4*/restartButton.hidden = false;
         /*5*/mainHeader.innerHTML = token + " Wins!";
-        /*6*/currentGame.rounds.push("1")
+        /*6*/currentGame.roundsCompleted.push("1")
         /*7*/newGameButton.hidden = false;
+        console.log(player);
+        console.log(currentGame);
+    } if (sq1.innerHTML != "" && sq2.innerHTML != "" && sq3.innerHTML != "" && sq4.innerHTML != "" && sq5.innerHTML != "" && sq6.innerHTML != "" && sq7.innerHTML != "" && sq8.innerHTML != "" && sq9.innerHTML != "") {
+        /*1*/someoneWon = true;
+        /*2*/scoreBox.innerHTML = player.wins;
+        /*3*/restartButton.hidden = false;
+        /*4*/mainHeader.innerHTML = "🐵 Tie! 🙈";
+        /*5*/currentGame.roundsCompleted.push("1");
+        /*6*/newGameButton.hidden = false;
         console.log(player);
         console.log(currentGame);
     }

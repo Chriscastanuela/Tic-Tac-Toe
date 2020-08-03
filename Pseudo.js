@@ -14,9 +14,6 @@ class Game {
     player2Turn() {
         this.turn.unshift("O");
     }
-    getCurrentBoard() {
-        currentGameBoard = document.querySelector(".Game-board");
-    }
 }
 
 class Player {
@@ -34,6 +31,8 @@ class Player {
 }
 /*  <---------------------------List
 
+
+
 Game:
 - keep track of turns in storage
 
@@ -41,7 +40,12 @@ Player:
 - saveWinsToStorage
 - retrieveWinsFromStorage
 
+
+
+
 - Check for draws
+
+
 */
 
 /* <---------------------------Extra

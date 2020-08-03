@@ -3,7 +3,7 @@ class Game {
         this.player1 = new Player ("One", "🐵");
         this.player2 = new Player ("Two", "🙈");
         this.turns = [];
-        this.rounds = [];
+        this.roundsCompleted = [];
         this.currentGameBoard = gameBoard;
     }
     player1Turn() {
