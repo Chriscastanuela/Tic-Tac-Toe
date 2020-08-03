@@ -1,59 +1,21 @@
-// class game and player
-class Game {
-    constructor() {
-        this.player1 = new Player ("One", "🐵");
-        this.player2 = new Player ("Two", "🙈");
-        this.turns = [];
-        this.rounds = [];
-        this.currentGameBoard;
-    }
-    player1Turn() {
-        this.turn.unshift("X");
-        // this.turn.unshift(event.target.id);
-    }
-    player2Turn() {
-        this.turn.unshift("O");
-    }
-}
-
-class Player {
-    constructor(id, icon) {
-        this.id = id;
-        this.icon = icon;
-        this.wins = [];
-    }
-    saveWinsToStorage() {
-
-    }
-    retrieveWinsFromStorage() {
-
-    }
-}
 /*  <---------------------------List
 
+1 - restart function - done
+2 - newGame - done
 
+3 - Load
+    - if (game is in progress){} else {} every time you make a move save the entire game
+    - on load hide buttons
 
-Game:
-- keep track of turns in storage
-
-Player:
-- saveWinsToStorage
-- retrieveWinsFromStorage
-
-
-
-
-- Check for draws
-
-
-*/
-
-/* <---------------------------Extra
 */
 /*  <---------------------------Pseudo
 
-Deal with localStorage
-New Game
+function loadGame() {
+    // on load hide buttons
+    // check JSON currentGame
+    // load it to the screen
+}
+
 */
 /* <-----------------------------Code I might need
 
@@ -120,7 +82,7 @@ function checkForWin(token, scoreBox, player) {
     }
 };
 
-function restart() {
+if (currentGame.turns.length < 1) {
     sq1.innerHTML = "";
     sq2.innerHTML = "";
     sq3.innerHTML = "";
@@ -132,7 +94,11 @@ function restart() {
     sq9.innerHTML = "";
     currentGame.turns = [];
     restartButton.hidden = true;
+    newGameButton.hidden = true;
     mainHeader.innerHTML = "Start";
+    roundOver = false;
+} if (currentGame.turns.length > 1) {
+    
 }
 
 */

@@ -1,10 +1,11 @@
 // <---------------------------Main.JS Variables
 var games = []; //Data Model
-var someoneWon = false;
+var roundOver = false;
 var currentGame = new Game();
 var moves;
 player1 = currentGame.player1;
 player2 = currentGame.player2;
+var stringifiedGame;
 
 // <---------------------------QuerySelectors
 var sq1 = document.querySelector("#square-1");
@@ -25,7 +26,7 @@ var newGameButton = document.querySelector(".newGameButton");
 var gameBoard = document.querySelector(".Game-board");
 
 // <---------------------------Event Listeners
-window.addEventListener("load", showStart);
+window.addEventListener("load", restart);
 sq1.addEventListener("click", makeMove);
 sq2.addEventListener("click", makeMove);
 sq3.addEventListener("click", makeMove);
@@ -35,12 +36,12 @@ sq6.addEventListener("click", makeMove);
 sq7.addEventListener("click", makeMove);
 sq8.addEventListener("click", makeMove);
 sq9.addEventListener("click", makeMove);
-restartButton.addEventListener("click", showStart);
+restartButton.addEventListener("click", restart);
 newGameButton.addEventListener("click", newGame);
 
 // <---------------------------Functions
 
-function showStart() {
+function restart() {
     sq1.innerHTML = "";
     sq2.innerHTML = "";
     sq3.innerHTML = "";
@@ -54,67 +55,68 @@ function showStart() {
     restartButton.hidden = true;
     newGameButton.hidden = true;
     mainHeader.innerHTML = "Start";
-    someoneWon = false;
-}
-
-if (currentGame.turns.length < 1) {
-    sq1.innerHTML = "";
-    sq2.innerHTML = "";
-    sq3.innerHTML = "";
-    sq4.innerHTML = "";
-    sq5.innerHTML = "";
-    sq6.innerHTML = "";
-    sq7.innerHTML = "";
-    sq8.innerHTML = "";
-    sq9.innerHTML = "";
-    currentGame.turns = [];
-    restartButton.hidden = true;
-    newGameButton.hidden = true;
-    mainHeader.innerHTML = "Start";
-    someoneWon = false;
-} if (currentGame.turns.length > 1) {
-    
+    roundOver = false;
+    saveCurrentGame();
 }
 
 function newGame() {
-    games.push(currentGame); // save currentGame;
-    victory1.innerHTML = ""; // clear victory1
-    victory2.innerHTML = ""; // clear victory2
-    showStart(); 
-    // clear 1 - 9
-    // clear turns
-    // hide restart and new Game buttons
-    // change header to "Start"
-    // someoneWon = false;
+    games.push(currentGame);
+    victory1.innerHTML = "";
+    victory2.innerHTML = "";
+    restart(); 
     currentGame = new Game;
-    // After everything is cleared start new Game
     player1 = currentGame.player1;
     player2 = currentGame.player2;
     console.log(currentGame);
     console.log(games);
 }
 
+function loadGame() {
+    // check JSON currentGame
+    // load it to the screen
+}
+
 function makeMove() {
-    if (currentGame.turns[0] === "O" && this.innerHTML === "" && someoneWon === false || currentGame.turns.length < 1 && this.innerHTML === "" && someoneWon === false) {
-        /*!*/currentGame.player1Turn();
+    if (currentGame.turns[0] === "O" && this.innerHTML === "" && roundOver === false || currentGame.turns.length < 1 && this.innerHTML === "" && roundOver === false) {
+        //
+        // Update the Page
         /*!*/this.insertAdjacentHTML("afterbegin", player1.icon);
-        /*!*/currentGame.currentGameBoard = gameBoard;
-        /*!*/console.log(currentGame.currentGameBoard);
         /*!*/mainHeader.innerHTML = "🙈's Turn";
+        //
+        // Check for win
         /*!*/checkForWin("🐵", victory1, player1);
-    } if (currentGame.turns[0] === "X" && this.innerHTML === "" && someoneWon === false ){
-        /*!*/currentGame.player2Turn();
-        /*!*/this.insertAdjacentHTML("afterbegin", player2.icon);
+        //
+        // Update Current Game
+        /*!*/currentGame.player1AddTurn();
         /*!*/currentGame.currentGameBoard = gameBoard;
+        /*!*/currentGame.currentGameVictory1 = victory1;
+        /*!*/currentGame.currentGameVictory2 = victory2;
+        /*!*/currentGame.currentGameMainHeader = mainHeader;
+        //
+        /*!*/saveCurrentGame(); // Save to storage
+        //
+        // Log Current Game to Console
         /*!*/console.log(currentGame.currentGameBoard);
+        /*!*/console.log(currentGame);
+        //
+    } if (currentGame.turns[0] === "X" && this.innerHTML === "" && roundOver === false ) {
+        /*!*/this.insertAdjacentHTML("afterbegin", player2.icon);
         /*!*/mainHeader.innerHTML = "🐵's Turn";
         /*!*/checkForWin("🙈", victory2, player2);
+        /*!*/currentGame.player2AddTurn();
+        /*!*/currentGame.currentGameBoard = gameBoard;
+        /*!*/currentGame.currentGameVictory1 = victory1;
+        /*!*/currentGame.currentGameVictory2 = victory2;
+        /*!*/currentGame.currentGameMainHeader = mainHeader;
+        /*!*/saveCurrentGame();
+        /*!*/console.log(currentGame.currentGameBoard);
+        /*!*/console.log(currentGame);
     }
 };
 
 function checkForWin(token, scoreBox, player) {
     if (sq1.innerHTML == token && sq2.innerHTML == token && sq3.innerHTML == token || sq4.innerHTML == token && sq5.innerHTML == token && sq6.innerHTML == token || sq7.innerHTML == token && sq8.innerHTML == token && sq9.innerHTML == token || sq1.innerHTML == token && sq4.innerHTML == token && sq7.innerHTML == token || sq2.innerHTML == token && sq5.innerHTML == token && sq8.innerHTML == token || sq3.innerHTML == token && sq6.innerHTML == token && sq9.innerHTML == token  || sq1.innerHTML == token && sq5.innerHTML == token && sq9.innerHTML == token || sq3.innerHTML == token && sq5.innerHTML == token && sq7.innerHTML == token) {
-        /*1*/someoneWon = true;
+        /*1*/roundOver = true;
         /*2*/player.wins.push("🍌");
         /*3*/scoreBox.innerHTML = player.wins;
         /*4*/restartButton.hidden = false;
@@ -124,7 +126,7 @@ function checkForWin(token, scoreBox, player) {
         console.log(player);
         console.log(currentGame);
     } if (sq1.innerHTML != "" && sq2.innerHTML != "" && sq3.innerHTML != "" && sq4.innerHTML != "" && sq5.innerHTML != "" && sq6.innerHTML != "" && sq7.innerHTML != "" && sq8.innerHTML != "" && sq9.innerHTML != "") {
-        /*1*/someoneWon = true;
+        /*1*/roundOver = true;
         /*2*/scoreBox.innerHTML = player.wins;
         /*3*/restartButton.hidden = false;
         /*4*/mainHeader.innerHTML = "🐵 Tie! 🙈";
@@ -134,3 +136,8 @@ function checkForWin(token, scoreBox, player) {
         console.log(currentGame);
     }
 };
+
+function saveCurrentGame() {
+    stringifiedGame = JSON.stringify(currentGame);
+    localStorage.setItem("storedGame", stringifiedGame);
+}
