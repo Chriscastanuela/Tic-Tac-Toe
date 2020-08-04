@@ -19,6 +19,14 @@ function loadGame() {
 /* <-----------------------------Refactor
 
 - Draw functions
+- Setting currentSq's on moves
+
+// this.currentGameBoard;
+
+this.currentGameVictory1;
+this.currentGameVictory2;
+this.currentGameMainHeader;
+this.gamesHistory;
 
 
 */ 

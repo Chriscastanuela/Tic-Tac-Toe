@@ -26,8 +26,8 @@ var newGameButton = document.querySelector(".newGameButton");
 var gameBoard = document.querySelector(".Game-board");
 
 // <---------------------------Event Listeners
-window.addEventListener("load", restart);
-// window.addEventListener("load", loadGame);
+// window.addEventListener("load", restart);
+window.addEventListener("load", loadGame);
 sq1.addEventListener("click", makeMove);
 sq2.addEventListener("click", makeMove);
 sq3.addEventListener("click", makeMove);
@@ -57,7 +57,7 @@ function restart() {
     newGameButton.hidden = true;
     mainHeader.innerHTML = "Start";
     roundOver = false;
-    saveCurrentGame();
+    // saveCurrentGame();
 }
 
 function newGame() {
@@ -66,50 +66,53 @@ function newGame() {
     victory2.innerHTML = "";
     restart(); 
     currentGame = new Game;
-    player1 = currentGame.player1;
-    player2 = currentGame.player2;
-    currentGame.player1.wins = [];
-    currentGame.player2.wins = [];
     console.log(currentGame);
     console.log(games);
 }
 
-// function loadGame() {
-//     // on load hide buttons
-//     // check JSON currentGame
-//     // load it to the screen
-//     //
-//     var retrievedGameString = localStorage.getItem("storedGame");
-//     // var parsedGame = JSON.parse(retrievedGameString);
-//     console.log(retrievedGameString);
-//     if (retrievedGameString.turns > 1) {
-//         console.log(parsedGame);
-//         // roundsCompleted = parsedGame.roundsCompleted;
-//         // currentGame.turns = parsedGame.turns;
-//         // gameBoard = parsedGame.gameBoard;
-//         // gameBoard.innerHTML = parsedGame.gameBoard;
-//         // victory1 = parsedGame.victory1;
-//         // victory1.innerHTML = parsedGame.victory1;
-//         // victory2 = parsedGame.victory2;
-//         // victory2.innerHTML = parsedGame.victory2;
-//         // mainHeader = parsedGame.mainHeader;
-//         // mainHeader.innerHTML = parsedGame.mainHeader;
-//         // games = parsedGame.gamesHistory;
-//         roundsCompleted = retrievedGameString.roundsCompleted;
-//         currentGame.turns = retrievedGameString.turns;
-//         gameBoard = retrievedGameString.gameBoard;
-//         gameBoard.innerHTML = retrievedGameString.gameBoard;
-//         victory1 = retrievedGameString.victory1;
-//         victory1.innerHTML = retrievedGameString.victory1;
-//         victory2 = retrievedGameString.victory2;
-//         victory2.innerHTML = retrievedGameString.victory2;
-//         mainHeader = retrievedGameString.mainHeader;
-//         mainHeader.innerHTML = retrievedGameString.mainHeader;
-//         games = retrievedGameString.gamesHistory;
-//     } if (retrievedGameString.turns < 1) {
-//         restart();
-//     }
-// }
+function loadGame() {
+    // buttons
+    //
+    var retrievedGameString = localStorage.getItem("storedGame");
+    var parsedGame = JSON.parse(retrievedGameString);
+    console.log(parsedGame);
+    if (parsedGame.turns.length > 1) {
+        console.log("Hello");
+        currentGame.roundsCompleted = parsedGame.roundsCompleted;
+        currentGame.turns = parsedGame.turns;
+        // gameBoard = parsedGame.gameBoard;
+        // gameBoard.innerHTML = parsedGame.currentGameBoard;
+        sq1.innerHTML = parsedGame.currentSq1;
+        sq2.innerHTML = parsedGame.currentSq2;
+        sq3.innerHTML = parsedGame.currentSq3;
+        sq4.innerHTML = parsedGame.currentSq4;
+        sq5.innerHTML = parsedGame.currentSq5;
+        sq6.innerHTML = parsedGame.currentSq6;
+        sq7.innerHTML = parsedGame.currentSq7;
+        sq8.innerHTML = parsedGame.currentSq8;
+        sq9.innerHTML = parsedGame.currentSq9;
+        // victory1 = parsedGame.victory1;
+        victory1.innerHTML = parsedGame.currentGameVictory1;
+        // victory2 = parsedGame.victory2;
+        victory2.innerHTML = parsedGame.currentGameVictory2;
+        // mainHeader = parsedGame.mainHeader;
+        mainHeader.innerHTML = parsedGame.currentGameMainHeader;
+        games = parsedGame.gamesHistory;
+        // roundsCompleted = retrievedGameString.roundsCompleted;
+        // currentGame.turns = retrievedGameString.turns;
+        // gameBoard = retrievedGameString.gameBoard;
+        // gameBoard.innerHTML = retrievedGameString.gameBoard;
+        // victory1 = retrievedGameString.victory1;
+        // victory1.innerHTML = retrievedGameString.victory1;
+        // victory2 = retrievedGameString.victory2;
+        // victory2.innerHTML = retrievedGameString.victory2;
+        // mainHeader = retrievedGameString.mainHeader;
+        // mainHeader.innerHTML = retrievedGameString.mainHeader;
+        // games = retrievedGameString.gamesHistory;
+    } if (parsedGame.turns.length < 1) {
+        restart();
+    }
+};
 
 function makeMove() {
     if (currentGame.turns[0] === "O" && this.innerHTML === "" && roundOver === false || currentGame.turns.length < 1 && this.innerHTML === "" && roundOver === false) {
@@ -123,7 +126,16 @@ function makeMove() {
         //
         // Update Current Game
         /*!*/currentGame.player1AddTurn();
-        /*!*/currentGame.currentGameBoard = gameBoard;
+        // /*!*/currentGame.currentGameBoard = gameBoard;
+        /*!*/currentGame.currentSq1 = sq1.innerHTML;
+        /*!*/currentGame.currentSq2 = sq2.innerHTML;
+        /*!*/currentGame.currentSq3 = sq3.innerHTML;
+        /*!*/currentGame.currentSq4 = sq4.innerHTML;
+        /*!*/currentGame.currentSq5 = sq5.innerHTML;
+        /*!*/currentGame.currentSq6 = sq6.innerHTML;
+        /*!*/currentGame.currentSq7 = sq7.innerHTML;
+        /*!*/currentGame.currentSq8 = sq8.innerHTML;
+        /*!*/currentGame.currentSq9 = sq9.innerHTML;
         /*!*/currentGame.currentGameVictory1 = victory1;
         /*!*/currentGame.currentGameVictory2 = victory2;
         /*!*/currentGame.currentGameMainHeader = mainHeader;
@@ -140,7 +152,16 @@ function makeMove() {
         /*!*/mainHeader.innerHTML = "🐵's Turn";
         /*!*/checkForWin("🙈", victory2, currentGame.player2);
         /*!*/currentGame.player2AddTurn();
-        /*!*/currentGame.currentGameBoard = gameBoard;
+        // /*!*/currentGame.currentGameBoard = gameBoard;
+        /*!*/currentGame.currentSq1 = sq1.innerHTML;
+        /*!*/currentGame.currentSq2 = sq2.innerHTML;
+        /*!*/currentGame.currentSq3 = sq3.innerHTML;
+        /*!*/currentGame.currentSq4 = sq4.innerHTML;
+        /*!*/currentGame.currentSq5 = sq5.innerHTML;
+        /*!*/currentGame.currentSq6 = sq6.innerHTML;
+        /*!*/currentGame.currentSq7 = sq7.innerHTML;
+        /*!*/currentGame.currentSq8 = sq8.innerHTML;
+        /*!*/currentGame.currentSq9 = sq9.innerHTML;
         /*!*/currentGame.currentGameVictory1 = victory1;
         /*!*/currentGame.currentGameVictory2 = victory2;
         /*!*/currentGame.currentGameMainHeader = mainHeader;
@@ -175,7 +196,9 @@ function checkForWin(token, scoreBox, player) {
 };
 
 function saveCurrentGame() {
-    var gameToString = currentGame
+    console.log(currentGame);
+    var gameToString = currentGame;
     var stringifiedGame = JSON.stringify(gameToString);
-    localStorage.setItem("storedGame", gameToString);
+    console.log(stringifiedGame);
+    localStorage.setItem("storedGame", stringifiedGame);
 }

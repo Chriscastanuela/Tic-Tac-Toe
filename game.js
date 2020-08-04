@@ -5,6 +5,15 @@ class Game {
         this.roundsCompleted = [];
         this.turns = [];
         this.currentGameBoard;
+        this.currentSq1;
+        this.currentSq2;
+        this.currentSq3;
+        this.currentSq4;
+        this.currentSq5;
+        this.currentSq6;
+        this.currentSq7;
+        this.currentSq8;
+        this.currentSq9;
         this.currentGameVictory1;
         this.currentGameVictory2;
         this.currentGameMainHeader;
