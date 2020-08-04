@@ -5,8 +5,10 @@ class Game {
         this.roundsCompleted = [];
         this.turns = [];
         this.currentGameBoard;
-        this.victory1;
-        this.victory2;
+        this.currentGameVictory1;
+        this.currentGameVictory2;
+        this.currentGameMainHeader;
+        this.gamesHistory;
     }
     player1AddTurn() {
         this.turns.unshift("X");

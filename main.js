@@ -27,6 +27,7 @@ var gameBoard = document.querySelector(".Game-board");
 
 // <---------------------------Event Listeners
 window.addEventListener("load", restart);
+// window.addEventListener("load", loadGame);
 sq1.addEventListener("click", makeMove);
 sq2.addEventListener("click", makeMove);
 sq3.addEventListener("click", makeMove);
@@ -67,14 +68,48 @@ function newGame() {
     currentGame = new Game;
     player1 = currentGame.player1;
     player2 = currentGame.player2;
+    currentGame.player1.wins = [];
+    currentGame.player2.wins = [];
     console.log(currentGame);
     console.log(games);
 }
 
-function loadGame() {
-    // check JSON currentGame
-    // load it to the screen
-}
+// function loadGame() {
+//     // on load hide buttons
+//     // check JSON currentGame
+//     // load it to the screen
+//     //
+//     var retrievedGameString = localStorage.getItem("storedGame");
+//     // var parsedGame = JSON.parse(retrievedGameString);
+//     console.log(retrievedGameString);
+//     if (retrievedGameString.turns > 1) {
+//         console.log(parsedGame);
+//         // roundsCompleted = parsedGame.roundsCompleted;
+//         // currentGame.turns = parsedGame.turns;
+//         // gameBoard = parsedGame.gameBoard;
+//         // gameBoard.innerHTML = parsedGame.gameBoard;
+//         // victory1 = parsedGame.victory1;
+//         // victory1.innerHTML = parsedGame.victory1;
+//         // victory2 = parsedGame.victory2;
+//         // victory2.innerHTML = parsedGame.victory2;
+//         // mainHeader = parsedGame.mainHeader;
+//         // mainHeader.innerHTML = parsedGame.mainHeader;
+//         // games = parsedGame.gamesHistory;
+//         roundsCompleted = retrievedGameString.roundsCompleted;
+//         currentGame.turns = retrievedGameString.turns;
+//         gameBoard = retrievedGameString.gameBoard;
+//         gameBoard.innerHTML = retrievedGameString.gameBoard;
+//         victory1 = retrievedGameString.victory1;
+//         victory1.innerHTML = retrievedGameString.victory1;
+//         victory2 = retrievedGameString.victory2;
+//         victory2.innerHTML = retrievedGameString.victory2;
+//         mainHeader = retrievedGameString.mainHeader;
+//         mainHeader.innerHTML = retrievedGameString.mainHeader;
+//         games = retrievedGameString.gamesHistory;
+//     } if (retrievedGameString.turns < 1) {
+//         restart();
+//     }
+// }
 
 function makeMove() {
     if (currentGame.turns[0] === "O" && this.innerHTML === "" && roundOver === false || currentGame.turns.length < 1 && this.innerHTML === "" && roundOver === false) {
@@ -84,7 +119,7 @@ function makeMove() {
         /*!*/mainHeader.innerHTML = "🙈's Turn";
         //
         // Check for win
-        /*!*/checkForWin("🐵", victory1, player1);
+        /*!*/checkForWin("🐵", victory1, currentGame.player1);
         //
         // Update Current Game
         /*!*/currentGame.player1AddTurn();
@@ -92,6 +127,7 @@ function makeMove() {
         /*!*/currentGame.currentGameVictory1 = victory1;
         /*!*/currentGame.currentGameVictory2 = victory2;
         /*!*/currentGame.currentGameMainHeader = mainHeader;
+        /*!*/currentGame.gamesHistory = games;
         //
         /*!*/saveCurrentGame(); // Save to storage
         //
@@ -102,12 +138,13 @@ function makeMove() {
     } if (currentGame.turns[0] === "X" && this.innerHTML === "" && roundOver === false ) {
         /*!*/this.insertAdjacentHTML("afterbegin", player2.icon);
         /*!*/mainHeader.innerHTML = "🐵's Turn";
-        /*!*/checkForWin("🙈", victory2, player2);
+        /*!*/checkForWin("🙈", victory2, currentGame.player2);
         /*!*/currentGame.player2AddTurn();
         /*!*/currentGame.currentGameBoard = gameBoard;
         /*!*/currentGame.currentGameVictory1 = victory1;
         /*!*/currentGame.currentGameVictory2 = victory2;
         /*!*/currentGame.currentGameMainHeader = mainHeader;
+        /*!*/currentGame.gamesHistory = games;
         /*!*/saveCurrentGame();
         /*!*/console.log(currentGame.currentGameBoard);
         /*!*/console.log(currentGame);
@@ -138,6 +175,7 @@ function checkForWin(token, scoreBox, player) {
 };
 
 function saveCurrentGame() {
-    stringifiedGame = JSON.stringify(currentGame);
-    localStorage.setItem("storedGame", stringifiedGame);
+    var gameToString = currentGame
+    var stringifiedGame = JSON.stringify(gameToString);
+    localStorage.setItem("storedGame", gameToString);
 }

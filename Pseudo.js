@@ -16,7 +16,12 @@ function loadGame() {
     // load it to the screen
 }
 
-*/
+/* <-----------------------------Refactor
+
+- Draw functions
+
+
+*/ 
 /* <-----------------------------Code I might need
 
 <section class="Game">
@@ -102,3 +107,13 @@ if (currentGame.turns.length < 1) {
 }
 
 */
+
+this.player1 = new Player ("One", "🐵");
+this.player2 = new Player ("Two", "🙈");
+this.roundsCompleted = [];
+this.turns = [];
+this.currentGameBoard;
+this.currentGameVictory1;
+this.currentGameVictory2;
+this.currentGameMainHeader;
+this.gamesHistory;
