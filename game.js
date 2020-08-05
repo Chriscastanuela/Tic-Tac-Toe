@@ -18,6 +18,9 @@ class Game {
         this.currentGameVictory2;
         this.currentGameMainHeader;
         this.gamesHistory;
+        this.currentGameRoundOver;
+        this.restartButtonStatus;
+        this.newGameButtonStatus;
     }
     player1AddTurn() {
         this.turns.unshift("X");
