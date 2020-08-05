@@ -21,6 +21,8 @@
     <li>I was given full creative control with the project's design</li>
 </ul>
 
+# Final Version
+! [TTT Image] (https://github.com/Chriscastanuela/Tic-Tac-Toe/blob/master/Screen%20Shot%202020-08-04%20at%209.13.31%20PM.png?raw=true)
 # Successes
 
 <a name="successes"></a>
