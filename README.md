@@ -2,7 +2,7 @@
 # Tic-Tac-Toe
 > A js project by Chris Castenuela
 
-![TTT img](https://www.thesprucecrafts.com/thmb/z_0nV5ad4RB7vGKR2Fc3NwOtJ7g=/1500x1000/filters:no_upscale():max_bytes(150000):strip_icc()/tic-tac-toe-game-rules-412170_moreadvanced_3232-ac3d49ea18e344fab4a2c95d2ef0a3d3.jpg)
+[Link to Deployed Site](https://chriscastanuela.github.io/Tic-Tac-Toe/)
 
 # Contents 
 
