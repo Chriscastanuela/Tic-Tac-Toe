@@ -2,7 +2,7 @@
 # Tic-Tac-Toe
 > A js project by Chris Castenuela
 
-[Link to Deployed Site](https://chriscastanuela.github.io/Tic-Tac-Toe/)
+## [Link to Deployed Site](https://chriscastanuela.github.io/Tic-Tac-Toe/)
 
 # Contents 
 
